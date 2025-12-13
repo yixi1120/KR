@@ -552,7 +552,7 @@ Get-Content game_log.txt -Wait -Tail 50
 
 ---
 
-##  教师评估建议
+##  操作指南
 
 ### 快速验证功能：
 
@@ -615,6 +615,7 @@ Get-Content game_log.txt -Wait -Tail 50
 4. game_log.txt 日志文件
 
 ---
+
 
 
 
