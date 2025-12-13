@@ -3,6 +3,15 @@
 一个基于SWI-Prolog实现的文本冒险游戏，采用基于PDDL的对抗AI，并配有可选的Web可视化界面。
 
 ---
+##  作者信息
+
+- **课程：** JC4002 - 知识表示
+- **作业：** 带PDDL对手的基于文本的Prolog冒险游戏
+- **学年：** 2025-2026
+- **作者：** Minzhen Lai (50087369) & Ziyang Lu (50087371)
+- **联系方式：** 若您在运行本游戏时遇到任何问题，欢迎您随时联系邮箱:u15zl22@abdn.ac.uk
+
+---
 
 ##  项目概述
 
@@ -33,7 +42,7 @@ CI/
 │   ├── catmouse-problem-full.pddl      # PDDL问题模板
 │   └── pyperplan_runner.pl             # Pyperplan集成模块
 │
-├── 扩展功能（加分项）
+├── 扩展功能（附加）
 │   ├── game_server.pl                  # Web界面的HTTP服务器
 │   ├── game_frontend_connected.html    # Web可视化界面
 │   ├── background.jpg                  # UI背景图片
@@ -245,7 +254,7 @@ http://localhost:9178
 
 ---
 
-## 🎯 游戏规则与地图
+##  游戏规则与地图
 
 ### 地图布局（5x8网格）：
 ```
@@ -373,7 +382,7 @@ Get-Content game_log.txt -Wait -Tail 50
 
 ---
 
-## 🎓 技术亮点
+##  技术亮点
 
 ### 知识表示：
 - **静态事实：** `room_of/3`、`door_cell/3`、`wall/2`、`walkable/2`
@@ -432,7 +441,7 @@ Get-Content game_log.txt -Wait -Tail 50
 
 ---
 
-## 📄 作业要求符合性
+##  作业要求符合性
 
 本项目满足所有要求：
 -  基于文本的Prolog冒险游戏
@@ -441,15 +450,7 @@ Get-Content game_log.txt -Wait -Tail 50
 -  动态规划和重新规划
 -  随机性和不确定性
 -  胜负条件
--  **加分项：** Web界面和HTTP服务器（作业提示中建议的扩展）
-
----
-
-##  作者信息
-
-- **课程：** JC4002 - 知识表示
-- **作业：** 带PDDL对手的基于文本的Prolog冒险游戏
-- **学年：** 2025-2026
+-  Web界面和HTTP服务器（作业提示中建议的扩展）
 
 ---
 
@@ -564,7 +565,7 @@ Get-Content game_log.txt -Wait -Tail 50
 ?- cat_turn.       % 验证PDDL规划
 ```
 
-**2. Web界面（加分项）：**
+**2. Web界面（附加项）：**
 - 双击 `start_server.bat`
 - 访问 `http://localhost:9178`
 - 体验现代化的游戏界面
@@ -614,6 +615,7 @@ Get-Content game_log.txt -Wait -Tail 50
 4. game_log.txt 日志文件
 
 ---
+
 
 
 
