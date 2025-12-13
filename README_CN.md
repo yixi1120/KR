@@ -45,7 +45,6 @@ CI/
 ├── 扩展功能（附加）
 │   ├── game_server.pl                  # Web界面的HTTP服务器
 │   ├── game_frontend_connected.html    # Web可视化界面
-│   ├── background.jpg                  # UI背景图片
 │   └── start_server.bat                # 服务器快速启动脚本
 │
 └── 文档
