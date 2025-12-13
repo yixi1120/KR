@@ -41,8 +41,7 @@ CI/
 │
 └── 文档
     ├── README.md                       # 英文版说明文档
-    ├── README_CN.md                    # 中文版说明文档（本文件）
-    └── README_SUBMISSION.md            # 提交指南
+    └── README_CN.md                    # 中文版说明文档
 ```
 
 ---
@@ -615,6 +614,7 @@ Get-Content game_log.txt -Wait -Tail 50
 4. game_log.txt 日志文件
 
 ---
+
 
 
 
