@@ -234,37 +234,6 @@ Or press `Ctrl+C` and then type `a` (abort).
 
 ---
 
-## Game Rules & Map
-
-### Map Layout (5x8 grid):
-```
-Bedroom (1-3, 1-3)     Kitchen (4-5, 1-3)
-  [bedroom_key]           [cookie]
-       |                      |
-  bedroom_door(3,4)      kitchen_door(5,4)
-       |                      |
-       +----------------------+
-              |
-    Living Room (1-5, 5-8)
-  [kitchen_key] [traps x2]
-  
-  Mouse Hole (1,8) - Starting point
-```
-
-### Objective:
-- **Win:** Get the cookie from the kitchen
-- **Lose:** Get caught by the cat OR step on a mousetrap
-
-### Strategy:
-1. Start at mouse hole (1,8)
-2. Use `sense` to explore safely
-3. Find kitchen_key in living room
-4. Unlock kitchen door (5,4)
-5. Get the cookie from kitchen
-6. Avoid the cat's AI planning!
-
----
-
 ## AI Planning System
 
 The cat uses **PDDL planning** (Pyperplan with STRIPS) to chase the mouse intelligently:
@@ -362,34 +331,6 @@ Get-Content game_log.txt -Wait -Tail 50
 
 ---
 
-## Technical Highlights
-
-### Knowledge Representation:
-- **Static facts:** `room_of/3`, `door_cell/3`, `wall/2`, `walkable/2`
-- **Dynamic facts:** `at/3`, `item_at/3`, `has/2`, `trap/2`, `locked/1`, `turn/1`
-- **Rules:** Movement validation, door mechanics, win/lose conditions
-
-### PDDL Integration:
-- Domain file defines cat's action space
-- Problem file dynamically generated each turn
-- Pyperplan computes optimal path to mouse
-- First action from plan is executed
-
-### Randomization:
-- Bedroom key: Random placement in bedroom (excluding cat's start)
-- Kitchen key: Random placement in living room
-- Cookie: Random placement in kitchen
-- Traps: 2 randomly placed in living room (safe zones excluded)
-
-### Extended Features:
-- HTTP server using `library(http/thread_httpd)`
-- RESTful API with JSON responses
-- Real-time game state synchronization
-- Web-based visualization with fog of war
-- Professional UI design (Fredoka font, gradient backgrounds, animations)
-
----
-
 ## Quick Start Guide (For Evaluation)
 
 **For basic text-based gameplay:**
@@ -421,18 +362,6 @@ Or use the on-screen buttons.
 
 ---
 
-## Assignment Compliance
-
-This project fulfills all requirements:
-- Text-based Prolog adventure game
-- Knowledge base with facts and rules
-- PDDL-based opponent AI (Pyperplan)
-- Dynamic planning and replanning
-- Randomness and uncertainty
-- Win/lose conditions
-- Web interface and HTTP server (suggested extension in assignment)
-
----
 
 ## Notes
 
@@ -560,32 +489,6 @@ Open `game_log.txt` to view detailed game operation logs
 
 ---
 
-## Project Highlights
-
-1. **Complete Knowledge Representation**
-   - 76 static facts (map, rooms, doors)
-   - 8 types of dynamic facts
-   - 20+ rules
-
-2. **Intelligent Opponent AI**
-   - Uses STRIPS planner
-   - Adaptive replanning each turn
-   - Considers doors, keys, path optimization
-
-3. **Rich Game Mechanics**
-   - Fog of war system
-   - Multi-level map
-   - Item management system
-   - Door lock mechanism
-
-4. **Professional Extensions**
-   - RESTful API design
-   - Frontend-backend separation
-   - Real-time state synchronization
-   - Modern UI/UX design
-
----
-
 ## Contact
 
 For technical issues, please check:
@@ -595,4 +498,5 @@ For technical issues, please check:
 4. game_log.txt log file
 
 ---
+
 
