@@ -13,25 +13,6 @@ A text-based adventure game built with SWI-Prolog, featuring PDDL-based opponent
 
 ---
 
-## Project Overview
-
-**Game Concept:**  
-You play as a mouse trying to find a cookie in the kitchen while avoiding a cat (AI opponent) and mousetraps. Features:
-- Three rooms: Bedroom, Kitchen, and Living Room
-- Two locked doors requiring keys
-- Randomly placed items and traps
-- PDDL-based planner controlling the cat's behavior
-- Fog of war exploration system
-
-**Core Features:**
-- Text-based Prolog game (core requirement)
-- PDDL-based opponent AI (using Pyperplan)
-- Dynamic knowledge base with randomization
-- Win/lose conditions and game state management
-- **Extended features:** Web-based visualization and HTTP server
-
----
-
 ## File Structure
 
 ```
@@ -614,3 +595,4 @@ For technical issues, please check:
 4. game_log.txt log file
 
 ---
+
