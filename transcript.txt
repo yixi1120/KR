@@ -1,0 +1,414 @@
+This is the operation log of the current Cat & Mouse game, recording the output of each round of multiple complete games, including status updates, key actions, and win/loss determinations. The log covers three outcomes: the mouse wins, the mouse steps on the mousetrap and fails, and is caught by the cat and fails. It is used to prove that the rules and the behavior of the opposing AI can work properly.
+
+The following is the complete log:
+================================================================================================================================================
+Welcome to SWI-Prolog (threaded, 64 bits, version 9.3.34)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+1 ?- consult(['c:/Users/ziyou/Desktop/CI/cat_mouse.pl']).
+true.
+
+2 ?- start.
+Welcome to Cat & Mouse!
+
+--- Commands ---
+look.                % describe your current cell
+sense.               % sense the four neighbouring cells
+move(north|south|east|west).
+take(Item).          % pick up bedroom_key | kitchen_key | cookie
+unlock(bedroom_door|kitchen_door).
+status.              % show position, inventory, doors
+start.               % restart a new game
+cat_turn.               % cat turn
+------------------
+
+You are at (1,8) in the living_room.
+This is your cosy mouse hole.
+true.
+
+3 ?- move(north).
+You move to (1,7).
+You are at (1,7) in the living_room.
+true .
+
+4 ?- sense.
+You sniff around...
+To the north: a mousetrap 
+To the south: empty floor.
+To the west: the outer wall.
+To the east: a mousetrap 
+true.
+
+5 ?- cat_turn.
+Cat is at (1,1), mouse at (1,7).
+Cat planned first action: move_cat(c1_1,c1_2)
+The cat moves to (1,2).
+true .
+
+6 ?- move(south).
+You move to (1,8).
+You are at (1,8) in the living_room.
+This is your cosy mouse hole.
+true .
+
+7 ?- move(east).
+You move to (2,8).
+You are at (2,8) in the living_room.
+true .
+
+8 ?- cat_turn.
+Cat is at (1,2), mouse at (2,8).
+Cat planned first action: pickup_key(bedroom_key,c1_2)
+The cat picks up the bedroom_key at (1,2).
+true .
+
+9 ?- move(east).
+You move to (3,8).
+You are at (3,8) in the living_room.
+true .
+
+10 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: the outer wall.
+To the west: empty floor.
+To the east: items [kitchen_key] 
+true.
+
+11 ?- cat_turn.
+Cat is at (1,2), mouse at (3,8).
+Cat planned first action: move_cat(c1_2,c1_3)
+The cat moves to (1,3).
+true .
+
+12 ?- move(east).
+You move to (4,8).
+You are at (4,8) in the living_room.
+There is a kitchen_key here.
+true .
+
+13 ?- take(kitchen_key).
+You pick up the kitchen_key.
+true.
+
+14 ?- cat_turn.
+Cat is at (1,3), mouse at (4,8).
+Cat planned first action: move_cat(c1_3,c2_3)
+The cat moves to (2,3).
+true .
+
+15 ?- move(north).
+You move to (4,7).
+You are at (4,7) in the living_room.
+true .
+
+16 ?- move(north).
+You move to (4,6).
+You are at (4,6) in the living_room.
+true .
+
+16 ?- cat_turn.
+Cat is at (2,3), mouse at (4,6).
+Cat planned first action: move_cat(c2_3,c3_3)
+The cat moves to (3,3).
+true .
+
+17 ?- move(north).
+You move to (4,5).
+You are at (4,5) in the living_room.
+true .
+
+18 ?- move(east).
+You move to (5,5).
+You are at (5,5) in the living_room.
+true .
+
+19 ?- cat_turn.
+Cat is at (3,3), mouse at (5,5).
+Cat planned first action: move_cat(c3_3,c3_4)
+The cat moves to (3,4).
+true .
+
+20 ?- move(north).
+You move to (5,4).
+You are at (5,4) in the living_room.
+You are standing on the kitchen_door.
+true .
+
+21 ?- unlock(kitchen_door).
+You use the kitchen_key to unlock the kitchen_door.
+true.
+
+22 ?- cat_turn.
+Cat is at (3,4), mouse at (5,4).
+Cat planned first action: unlock_door(bedroom_door,c3_4,bedroom_key)
+The cat uses bedroom_key to unlock bedroom_door at (3,4).
+true .
+
+23 ?- move(north).
+You move to (5,3).
+You are at (5,3) in the kitchen.
+true .
+
+24 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: a door(kitchen_door) 
+To the west: items [cookie] 
+To the east: the outer wall.
+true.
+
+25 ?- cat_turn.
+Cat is at (3,4), mouse at (5,3).
+Cat planned first action: move_through_door(bedroom_door,c3_4,c3_5)
+The cat moves through bedroom_door to (3,5).
+true .
+
+26 ?- move(west).
+You move to (4,3).
+You are at (4,3) in the kitchen.
+There is a cookie here.
+true .
+
+27 ?- take(cookie).
+You pick up the cookie.
+
+You grab the cookie and start eating it.
+You win!
+true.
+
+28 ?- start.
+Welcome to Cat & Mouse!
+
+--- Commands ---
+look.                % describe your current cell
+sense.               % sense the four neighbouring cells
+move(north|south|east|west).
+take(Item).          % pick up bedroom_key | kitchen_key | cookie
+unlock(bedroom_door|kitchen_door).
+status.              % show position, inventory, doors
+start.               % restart a new game
+cat_turn.               % cat turn
+------------------
+
+You are at (1,8) in the living_room.
+This is your cosy mouse hole.
+true.
+
+29 ?- move(north).
+You move to (1,7).
+You are at (1,7) in the living_room.
+true .
+
+30 ?- move(north).
+You move to (1,6).
+You are at (1,6) in the living_room.
+true .
+
+30 ?- cat_turn.
+Cat is at (1,1), mouse at (1,6).
+Cat planned first action: move_cat(c1_1,c2_1)
+The cat moves to (2,1).
+true .
+
+31 ?- move(east).
+You move to (2,6).
+You are at (2,6) in the living_room.
+You see a deadly mousetrap right under your paws!
+
+Snap! You stepped on a mousetrap. Game over.
+true .
+
+32 ?- start.
+Welcome to Cat & Mouse!
+
+--- Commands ---
+look.                % describe your current cell
+sense.               % sense the four neighbouring cells
+move(north|south|east|west).
+take(Item).          % pick up bedroom_key | kitchen_key | cookie
+unlock(bedroom_door|kitchen_door).
+status.              % show position, inventory, doors
+start.               % restart a new game
+cat_turn.               % cat turn
+------------------
+
+You are at (1,8) in the living_room.
+This is your cosy mouse hole.
+true.
+
+33 ?- move(north).
+You move to (1,7).
+You are at (1,7) in the living_room.
+true .
+
+34 ?- move(north).
+You move to (1,6).
+You are at (1,6) in the living_room.
+true .
+
+34 ?- cat_turn.
+Cat is at (1,1), mouse at (1,6).
+Cat planned first action: move_cat(c1_1,c1_2)
+The cat moves to (1,2).
+true .
+
+35 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: empty floor.
+To the west: the outer wall.
+To the east: empty floor.
+true.
+
+36 ?- move(north).
+You move to (1,5).
+You are at (1,5) in the living_room.
+true .
+
+37 ?- cat_turn.
+Cat is at (1,2), mouse at (1,5).
+Cat planned first action: pickup_key(bedroom_key,c1_2)
+The cat picks up the bedroom_key at (1,2).
+true .
+
+38 ?- sense.
+You sniff around...
+To the north: a solid wall.
+To the south: empty floor.
+To the west: the outer wall.
+To the east: empty floor.
+true.
+
+39 ?- move(east).
+You move to (2,5).
+You are at (2,5) in the living_room.
+true .
+
+40 ?- cat_turn.
+Cat is at (1,2), mouse at (2,5).
+Cat planned first action: move_cat(c1_2,c2_2)
+The cat moves to (2,2).
+true .
+
+41 ?- sense.
+You sniff around...
+To the north: a solid wall.
+To the south: empty floor.
+To the west: empty floor.
+To the east: items [kitchen_key] 
+true.
+
+42 ?- move(east).
+You move to (3,5).
+You are at (3,5) in the living_room.
+There is a kitchen_key here.
+true .
+
+43 ?- cat_turn.
+Cat is at (2,2), mouse at (3,5).
+Cat planned first action: move_cat(c2_2,c2_3)
+The cat moves to (2,3).
+true .
+
+44 ?- sense.
+You sniff around...
+To the north: a door(bedroom_door) 
+To the south: empty floor.
+To the west: empty floor.
+To the east: empty floor.
+true.
+
+45 ?- move(south).
+You move to (3,6).
+You are at (3,6) in the living_room.
+true .
+
+46 ?- cat_turn.
+Cat is at (2,3), mouse at (3,6).
+Cat planned first action: move_cat(c2_3,c3_3)
+The cat moves to (3,3).
+true .
+
+47 ?- sense.
+You sniff around...
+To the north: items [kitchen_key] 
+To the south: empty floor.
+To the west: empty floor.
+To the east: a mousetrap 
+true.
+
+48 ?- move(south).
+You move to (3,7).
+You are at (3,7) in the living_room.
+true .
+
+49 ?- cat_turn.
+Cat is at (3,3), mouse at (3,7).
+Cat planned first action: move_cat(c3_3,c3_4)
+The cat moves to (3,4).
+true .
+
+50 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: empty floor.
+To the west: empty floor.
+To the east: empty floor.
+true.
+
+51 ?- move(west).
+You move to (2,7).
+You are at (2,7) in the living_room.
+true .
+
+52 ?- cat_turn.
+Cat is at (3,4), mouse at (2,7).
+Cat planned first action: unlock_door(bedroom_door,c3_4,bedroom_key)
+The cat uses bedroom_key to unlock bedroom_door at (3,4).
+true .
+
+53 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: empty floor.
+To the west: empty floor.
+To the east: empty floor.
+true.
+
+54 ?- move(north).
+You move to (2,6).
+You are at (2,6) in the living_room.
+true .
+
+55 ?- cat_turn.
+Cat is at (3,4), mouse at (2,6).
+Cat planned first action: move_through_door(bedroom_door,c3_4,c3_5)
+The cat moves through bedroom_door to (3,5).
+true .
+
+56 ?- sense.
+You sniff around...
+To the north: empty floor.
+To the south: empty floor.
+To the west: empty floor.
+To the east: empty floor.
+true.
+
+57 ?- move(north).
+You move to (2,5).
+You are at (2,5) in the living_room.
+true .
+
+58 ?- cat_turn.
+Cat is at (3,5), mouse at (2,5).
+Cat planned first action: move_cat(c3_5,c2_5)
+The cat moves to (2,5).
+
+The cat catches you. Game over.
+true .
+================================================================================================================================================
