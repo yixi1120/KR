@@ -19,8 +19,8 @@ A text-based adventure game built with SWI-Prolog, featuring PDDL-based opponent
 CI/
 ├── Core game files (Required)
 │   ├── cat_mouse.pl                    # Main game logic (716 lines)
-│   ├── catmouse-domain.pddl            # PDDL domain definition
-│   ├── catmouse-problem-full.pddl      # PDDL problem template
+│   ├── adversary_domain.pddl            # PDDL domain definition
+│   ├── adversary_problem_template.pddl      # PDDL problem template
 │   └── pyperplan_runner.pl             # Pyperplan integration module
 │
 ├── Extended features (Additional)
@@ -77,19 +77,19 @@ Change to **your pyperplan.exe location**.
 
 **Line 626** - PDDL domain file path (in test_plan):
 ```prolog
-'C:/Users/ziyou/Desktop/CI/catmouse-domain.pddl',
+'C:/Users/ziyou/Desktop/CI/adversary_domain.pddl',
 ```
 Change to **your project directory**.
 
 **Line 627** - PDDL problem file path (in test_plan):
 ```prolog
-'C:/Users/ziyou/Desktop/CI/catmouse-current.pddl',
+'C:/Users/ziyou/Desktop/CI/adversary_problem.pddl',
 ```
 Change to **your project directory**.
 
 **Line 650** - PDDL problem generation path (in cat_turn):
 ```prolog
-generate_pddl_problem('C:/Users/ziyou/Desktop/CI/catmouse-current.pddl'),
+generate_pddl_problem('C:/Users/ziyou/Desktop/CI/adversary_problem.pddl'),
 ```
 Change to **your project directory**.
 
@@ -101,13 +101,13 @@ Change to **your pyperplan.exe location**.
 
 **Line 655** - PDDL domain file path (in cat_turn):
 ```prolog
-'C:/Users/ziyou/Desktop/CI/catmouse-domain.pddl',
+'C:/Users/ziyou/Desktop/CI/adversary_domain.pddl',
 ```
 Change to **your project directory**.
 
 **Line 656** - PDDL problem file path (in cat_turn):
 ```prolog
-'C:/Users/ziyou/Desktop/CI/catmouse-current.pddl',
+'C:/Users/ziyou/Desktop/CI/adversary_problem.pddl',
 ```
 Change to **your project directory**.
 
@@ -481,8 +481,8 @@ Enjoy the game!
 
 **3. View PDDL Planning Process:**
 Running the game generates:
-- `catmouse-current.pddl` - Current state problem file
-- `catmouse-current.pddl.soln` - Planner's solution
+- `adversary_problem.pddl` - Current state problem file
+- `adversary_problem.pddl.soln` - Planner's solution
 
 **4. View Real-time Logs:**
 Open `game_log.txt` to view detailed game operation logs
@@ -498,5 +498,6 @@ For technical issues, please check:
 4. game_log.txt log file
 
 ---
+
 
 
